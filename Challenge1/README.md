@@ -2,13 +2,13 @@
 #The main.tf file contains the code for resource creation creating EC2 instance using a Provisioner
 #The config.tf file is responsbile for all the ancillary resources needed by the EC2 instance creation.
 
-**Lucid Chart Link **
+**Lucid Chart Link**
 
 ```
 https://lucid.app/lucidchart/ed141547-c2e9-4d01-bbe9-f5b28266e532/edit?viewport_loc=-554%2C118%2C3210%2C1407%2C0_0&invitationId=inv_9af74a84-8641-411a-b7f2-10f8de1aa252
 ```
 
-**Steps to Run **
+**Steps to Run**
 
 ***Clone the Project***
 ```
