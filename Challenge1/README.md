@@ -58,7 +58,7 @@ terraform apply
 **When complete, it will output the public IP for the Apache webserver as the Webserver-Public-IP value.Copy the IP address, paste it in a new browser window or tab, and press Enter.**
 
 ***Future Enhancements that can be done to this template***
-
+===========================================================
 **1. Creating Website replication to S3 Bucket on frequent Intervals**
 
 **2. Adding HA**
