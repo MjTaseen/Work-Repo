@@ -1,0 +1,57 @@
+from ec2_metadata import ec2_metadata
+import json
+
+class AttributesDict(dict):
+
+    # __init__ function
+    def __init__(self):
+        self = dict()
+
+    # Function to add key:value
+    def add(self, key, value):
+        self[key] = value
+
+#    def toJSON(self):
+#        return json.dumps(self, default=lambda o:o.__dict__(),sort_keys=True, indent=4)
+
+
+METAOPTS = ['ami-id', 'ami-launch-index', 'ami-manifest-path',
+            'availability-zone', 'block-device-mapping',
+            'instance-id', 'instance-type', 'local-hostname', 'local-ipv4',
+            'kernel-id', 'product-codes', 'public-hostname', 'public-ipv4',
+            'public-keys', 'ramdisk-id', 'reserveration-id', 'security-groups',
+            'user-data']
+
+attributes = AttributesDict()
+for item in METAOPTS:
+    if item == 'ami-id':
+        attributes.add(item, ec2_metadata.ami_id)
+    if item == 'ami-launch-index':
+        attributes.add(item, ec2_metadata.ami_launch_index)
+    if item == 'ami-manifest-path':
+        attributes.add(item, ec2_metadata.ami_manifest_path)
+    if item == 'availability-zone':
+        attributes.add(item, ec2_metadata.availability_zone)
+    if item == 'instance-id':
+        attributes.add(item, ec2_metadata.instance_id)
+    if item == 'instance-type':
+        attributes.add(item, ec2_metadata.instance_type)
+    if item == 'public-hostname':
+        attributes.add(item, ec2_metadata.public_hostname)
+    if item == 'public-ipv4':
+        attributes.add(item, ec2_metadata.public_ipv4)
+    if item == 'kernel-id':
+        attributes.add(item, ec2_metadata.kernel_id)
+    if item == 'security-groups':
+        attributes.add(item, ec2_metadata.security_groups)
+#    if item == 'user-data':
+#        attributes.add(item, ec2_metadata.user_data)
+
+print(attributes)
+
+with open("metadata.json", "w") as outfile:
+    json.dump(attributes, outfile)
+#with open("metadata.json", "w") as outfile:
+#    json.dump(attributes.toJSON(), outfile, indent=4, sort_keys=True)
+
+
